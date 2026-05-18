@@ -4,7 +4,6 @@ import { useState } from "react";
 
 import { DataTable } from "./components/DataTable";
 import { usuarios } from "./data/usuarios";
-import { renderizarEstado, type EstadoCarga } from "./types/estado";
 import type { Usuario } from "./types/usuario";
 import { calcularDiferenciaDias } from "./utils/fechas";
 
@@ -15,11 +14,6 @@ function App() {
     new Date("2026-05-01"),
     new Date()
   );
-
-  const estadoCarga: EstadoCarga = {
-    tipo: "EXITO",
-    datos: usuarios.map((usuario) => usuario.nombre)
-  };
 
   const usuariosFiltrados = usuarios.filter((usuario) =>
     usuario.nombre.toLowerCase().includes(busqueda.toLowerCase())
