@@ -1,56 +1,61 @@
 import { useState } from "react";
 
-export interface Columna<T> {
+interface Columna<T> {
   clave: keyof T;
   titulo: string;
 }
 
-interface DataTableProps<T> {
+interface DataTableProps<T extends { id: string }> {
   datos: T[];
   columnas: Columna<T>[];
 }
 
-export function DataTable<T extends { id: string }>({ datos, columnas }: DataTableProps<T>) {
+export function DataTable<T extends { id: string }>({
+  datos,
+  columnas
+}: DataTableProps<T>) {
   const [filaEditando, setFilaEditando] = useState<Partial<T> | null>(null);
-
-  function iniciarEdicion(fila: T): void {
-    setFilaEditando({ ...fila });
-  }
-
-  function cancelarEdicion(): void {
-    setFilaEditando(null);
-  }
 
   return (
     <section className="table-section">
-      <div className="table-header">
-        <h2>Tabla de datos genérica</h2>
+      <header className="table-header">
+        <h2>Gestión  de usuarios</h2>
+
         <p>
-          Componente reutilizable creado con React y TypeScript usando genéricos.
+        Tabla reutilizable basada en TypeScript Generics, búsqueda
+        dinámica y estado tipado
         </p>
-      </div>
+      </header>
 
       <table className="data-table">
         <thead>
           <tr>
             {columnas.map((columna) => (
-              <th key={String(columna.clave)}>{columna.titulo}</th>
+              <th key={String(columna.clave)}>
+                {columna.titulo}
+              </th>
             ))}
+
             <th>Acciones</th>
           </tr>
         </thead>
 
         <tbody>
-          {datos.map((fila) => (
-            <tr key={fila.id}>
+          {datos.map((item) => (
+            <tr key={item.id}>
               {columnas.map((columna) => (
                 <td key={String(columna.clave)}>
-                  {String(fila[columna.clave])}
+                  {typeof item[columna.clave] === "boolean"
+                    ? item[columna.clave]
+                      ? "Activo"
+                      : "Inactivo"
+                    : String(item[columna.clave])}
                 </td>
               ))}
+
               <td>
-                <button type="button" onClick={() => iniciarEdicion(fila)}>
-                  Editar
+                <button onClick={() => setFilaEditando(item)}>
+                  Ver detalle
                 </button>
               </td>
             </tr>
@@ -59,13 +64,13 @@ export function DataTable<T extends { id: string }>({ datos, columnas }: DataTab
       </table>
 
       {filaEditando && (
-        <div className="edit-panel">
-          <h3>Fila en edición</h3>
-          <pre>{JSON.stringify(filaEditando, null, 2)}</pre>
-          <button type="button" onClick={cancelarEdicion}>
-            Cancelar edición
-          </button>
-        </div>
+        <section className="edit-panel">
+          <h3>Informacion del usuario</h3>
+
+          <pre>
+            {JSON.stringify(filaEditando, null, 2)}
+          </pre>
+        </section>
       )}
     </section>
   );

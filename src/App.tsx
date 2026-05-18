@@ -47,11 +47,13 @@ function App() {
   return (
     <main className="container">
       <header className="hero">
-        <h1>React + TypeScript</h1>
+        <h1>Panel de Usuarios</h1>
 
         <p>
-          Proyecto del bootcamp centrado en componentes genéricos,
-          tipado estricto y reutilización de lógica.
+            Aplicación desarrollada con React y TypeScript para mostrar
+            datos dinámicos, componentes reutilizables y control estricto
+             de tipos.
+
         </p>
       </header>
 
@@ -65,7 +67,7 @@ function App() {
       </section>
 
       <section className="status-card">
-        {renderizarEstado(estadoCarga)}
+        Usuarios cargados correctamente
       </section>
 
       <section className="days-card">
