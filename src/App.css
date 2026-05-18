@@ -37,9 +37,9 @@ body {
   background: #ffffff;
   padding: 28px;
   border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+  border: 1px solid #dbe3ea;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
-
 .table-header {
   margin-bottom: 22px;
   text-align: center;
@@ -61,6 +61,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .data-table th,
