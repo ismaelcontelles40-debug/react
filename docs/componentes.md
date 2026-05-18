@@ -118,11 +118,6 @@ Utilizado para:
 - Gestión de edición
 - Estado de componentes
 
-## useMemo
-
-Aplicado inicialmente para optimización del filtrado dinámico y mejora del rendimiento.
-
----
 
 # Exhaustiveness checking
 

@@ -53,9 +53,6 @@ Componente genérico reutilizable capaz de renderizar tablas dinámicas utilizan
 
 Utilizado para gestionar el estado de búsqueda y edición de datos.
 
-## useMemo
-
-Aplicado inicialmente para optimización del filtrado dinámico y mejora del rendimiento.
 
 ---
 
