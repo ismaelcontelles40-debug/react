@@ -42,16 +42,19 @@ body {
 
 .table-header {
   margin-bottom: 22px;
+  text-align: center;
 }
 
 .table-header h2 {
   margin: 0 0 8px;
   font-size: 26px;
+  color: #111827;
 }
 
 .table-header p {
   margin: 0;
   color: #6b7280;
+  font-size: 16px;
 }
 
 .data-table {
@@ -148,5 +151,15 @@ button:hover {
   border-radius: 12px;
   background: #ecfdf5;
   color: #047857;
+  font-weight: 700;
+}
+
+.days-card {
+  margin: 0 auto 24px;
+  width: fit-content;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #1d4ed8;
   font-weight: 700;
 }
